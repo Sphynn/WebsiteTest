@@ -1,10 +1,119 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Untitled Document</title>
-</head>
+	<head>
+		<title>Login Page</title>
 
-<body>
-</body>
+		<meta charset="utf-8">
+		<meta name="viewport"				content="width=device-width, initial-scale=1.0">
+		<meta name="description"			content="RedFynn Website Test" />
+		<meta name="keywords"				content="RedFynn, html, css, php, test, example, score">
+
+		<link rel="shortcut icon"	type="image/x-icon" href="favicon.ico">
+		<link rel="stylesheet"		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet"		href="styles.css">
+
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="https://use.fontawesome.com/b302c76471.js"></script>
+		<script src="scripts.js"></script>
+	</head>
+
+	<body>
+		<div class="cont">
+			<div class="demo">
+				<div class="loginBox">
+					<div class="login_check"></div>
+					<div class="login_form">
+						<div class="login_row">
+							<svg class="login_icon name svg-icon" viewBox="0 0 20 20">
+								<path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8"></path>
+							</svg>
+							<input class="login_input name" placeholder="Username" type="text">
+						</div>
+						<div class="login_row">
+							<svg class="login_icon pass svg-icon" viewBox="0 0 20 20">
+								<path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0"></path>
+							</svg>
+							<input class="login_input pass" placeholder="Password" type="password">
+						</div>
+						<button type="button" class="login_submit">Sign in</button>
+						<p class="login_signup">Don't have an account? &nbsp;<a>Sign up</a></p>
+					</div>
+				</div>
+		
+		
+		
+		
+				<div class="app">
+					<div class="app_top">
+						<div class="app_menu-btn">
+							<span></span>
+						</div>
+						<svg class="app_icon search svg-icon" viewBox="0 0 20 20">
+							<!-- yeap, its purely hardcoded numbers straight from the head :D (same for svg above) -->
+							<path d="M20,20 15.36,15.36 a9,9 0 0,1 -12.72,-12.72 a 9,9 0 0,1 12.72,12.72" />
+						</svg>
+						<p class="app_hello">Good Morning!</p>
+						<div class="app_user">
+							<img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg" alt="" class="app_user-photo" />
+							<span class="app_user-notif">3</span>
+						</div>
+						<div class="app_month">
+							<span class="app_month-btn left"></span>
+							<p class="app_month-name">March</p>
+							<span class="app_month-btn right"></span>
+						</div>
+					</div>
+					<div class="app_bot">
+						<div class="app_days">
+							<div class="app_day weekday">Sun</div>
+							<div class="app_day weekday">Mon</div>
+							<div class="app_day weekday">Tue</div>
+							<div class="app_day weekday">Wed</div>
+							<div class="app_day weekday">Thu</div>
+							<div class="app_day weekday">Fri</div>
+							<div class="app_day weekday">Sad</div>
+							<div class="app_day date">8</div>
+							<div class="app_day date">9</div>
+							<div class="app_day date">10</div>
+							<div class="app_day date">11</div>
+							<div class="app_day date">12</div>
+							<div class="app_day date">13</div>
+							<div class="app_day date">14</div>
+						</div>
+						<div class="app_meetings">
+							<div class="app_meeting">
+								<img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-80_5.jpg" alt="" class="app_meeting-photo" />
+								<p class="app_meeting-name">Feed the cat</p>
+								<p class="app_meeting-info">
+									<span class="app_meeting-time">8 - 10am</span>
+									<span class="app_meeting-place">Real-life</span>
+								</p>
+							</div>
+							<div class="app_meeting">
+								<img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg" alt="" class="app_meeting-photo" />
+								<p class="app_meeting-name">Feed the cat!</p>
+								<p class="app_meeting-info">
+									<span class="app_meeting-time">1 - 3pm</span>
+									<span class="app_meeting-place">Real-life</span>
+								</p>
+							</div>
+							<div class="app_meeting">
+								<img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg" alt="" class="app_meeting-photo" />
+								<p class="app_meeting-name">FEED THIS CAT ALREADY!!!</p>
+								<p class="app_meeting-info">
+									<span class="app_meeting-time">This button is just for demo</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="app_logout">
+						<svg class="app_logout-icon svg-icon" viewBox="0 0 20 20">
+							<path d="M6,3 a8,8 0 1,0 8,0 M10,0 10,12"/>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
