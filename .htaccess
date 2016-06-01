@@ -1,0 +1,42 @@
+#Prevent viewing of .htaccess file
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+RewriteEngine On
+
+# www redirect
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=302,L]
+
+# https redirect
+# RewriteCond %{HTTPS} !=on
+# RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# If not a directory, file is in root, redirect without PHP extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1\.php -f
+RewriteRule ^(.*)$ /$1.php [L]
+
+# If not a directory, not in root and file in /pages exists, redirect without PHP extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/pages/$1\.php -f
+RewriteRule ^(.*)$ /pages/$1.php [L]
+
+# If not a directory, file is in root, redirect without HTML extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1\.html -f
+RewriteRule ^(.*)$ /$1.html [L]
+
+# If not a directory, not in root and file in /pages exists, redirect without HTML extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/pages/$1\.html -f
+RewriteRule ^(.*)$ /pages/$1.html [L]
+
+# Error Documents
+ErrorDocument 400 /400.shtml
+ErrorDocument 403 /403.shtml
+ErrorDocument 404 /404.shtml
+ErrorDocument 500 /500.shtml
+
