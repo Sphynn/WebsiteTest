@@ -20,14 +20,14 @@ $(document).ready(function(){
 		$ripple.css({top: y, left: x});
 		elem.append($ripple);
 	}
-
-	$(document).on("click", ".login_submit", function(e){
-		if (animating){
+	
+	function loginAnim(elem, e){
+		if(animating){
 			return;
 		}
-		animating = true;
-		var that = this;
-		ripple($(that), e);
+		animating = elem;
+		var that = elem;
+		ripple(elem, e);
 		$(that).addClass("processing");
 		setTimeout(function(){
 			$(that).addClass("success");
@@ -43,15 +43,15 @@ $(document).ready(function(){
 				$(that).removeClass("success processing");
 			}, submitPhase2);
 		}, submitPhase1);
-	});
-
-	$(document).on("click", ".app_logout", function(){
+	}
+	
+	function logoutAnim(elem){
 		if (animating){
 			return;
 		}
 		$(".ripple").remove();
-		animating = true;
-		var that = this;
+		animating = elem;
+		var that = elem;
 		$(that).addClass("clicked");
 		setTimeout(function(){
 			$app.removeClass("active");
@@ -64,6 +64,38 @@ $(document).ready(function(){
 			animating = false;
 			$(that).removeClass("clicked");
 		}, logoutPhase1);
+	}
+
+
+	$(document).on("click", ".login_submit", function(e){
+		var elem = $(this);
+		var form = $('#loginForm').serialize();
+		$.ajax({
+			type: "POST",
+			url: "process_login.php",
+			data: form
+		})
+		.done(function(data){
+			if(data && data.message === true){
+				loginAnim(elem, e);
+				console.log('Login Success', data);
+			}
+			else{
+				console.log('Login Failed', data);
+			}
+		})
+		.fail(function(){
+			var Message = "An error occurred while trying to load your content.";
+			console.log(Message);
+		})
+		.always(function(){
+		});
+	});
+
+	$(document).on("click", ".app_logout", function(){
+		var elem = $(this);
+		logoutAnim(elem);
+		console.log('Logout');
 	});
 
 });
